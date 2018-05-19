@@ -1,0 +1,19 @@
+﻿@model  List<cinema.Models.Row>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div data-ng-controller="PlaceCtrl as ctrl">
+    <div class="flex-wrapper" ng-repeat="cols in ctrl.Data">        
+            <div ng-repeat="col in cols.Cols">
+                <div data-ng-class="{active: col.Busy === true}"
+                     data-ng-click="ctrl.TakePlace(cols.RowNumber, col)"
+                     class="block">
+                    {{cols.RowNumber}} | {{col.PlaceNumber}}
+                </div>
+            </div>        
+    </div>
+</div>
+<style>
+   
+</style>
